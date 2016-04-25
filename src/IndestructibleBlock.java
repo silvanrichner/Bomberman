@@ -1,4 +1,4 @@
-package fhnw.ws2c.bomberman;
+
 import processing.core.PApplet;
 
 /**
