@@ -5,14 +5,14 @@ import processing.core.PApplet;
 public class Bomberman extends PApplet {
 	
 	//the dimensions of the playing field
-	int mapSizeX = 29;
-	int mapSizeY = 19;
+	int mapSizeX = 15;
+	int mapSizeY = 11;
 	
 	//the playing field
 	MapItem[][] map;
 	
 	//the size in pixels of one tile of the playing field
-	int tileSize = 20;
+	int tileSize = 40;
 	
 	//the players (duh!)
 	Player player1;
@@ -39,7 +39,23 @@ public class Bomberman extends PApplet {
 			map[i] = new MapItem[mapSizeY];
 		}
 		
-		//add indestructible crates
+		//add crates
+		for(int i=0; i<map.length; i++){
+			for(int j=0; j<map[i].length; j++){
+				if(Math.random() < 0.7){
+					map[i][j] = new Crate(this, map, i, j);
+				}
+			}
+		}
+		//make sure that there are no crates on or right next to the players spawn point
+		map[0][0] = null;
+		map[0][1] = null;
+		map[1][0] = null;
+		map[mapSizeX-1][mapSizeY-1] = null;
+		map[mapSizeX-2][mapSizeY-1] = null;
+		map[mapSizeX-1][mapSizeY-2] = null;
+		
+		//add indestructible blocks
 		for(int i=1; i<map.length; i++){
 			for(int j=1; j<map[i].length; j++){
 				if(j % 2 != 0 && i % 2 != 0 ){
@@ -48,9 +64,10 @@ public class Bomberman extends PApplet {
 			}
 		}
 		
+		
 		//initialize the players
 		player1 = new Player(this, map, 5, 5, tileSize);
-		player2 = new Player(this, map, width-15, height-15, tileSize);
+		player2 = new Player(this, map, width-35, height-35, tileSize);
 	}
 	
 	@Override
@@ -66,7 +83,7 @@ public class Bomberman extends PApplet {
 		for(int i=0; i<map.length; i++){
 			for(int j=0; j<map[i].length; j++){
 				if(map[i][j] != null){
-					map[i][j].paint(i * 20, j * 20);
+					map[i][j].paint(i * tileSize, j * tileSize);
 				}
 			}
 		}

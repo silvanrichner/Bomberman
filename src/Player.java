@@ -19,7 +19,7 @@ public class Player {
 	//The number of tiles that are affected by the players bomb
 	int bombRadius;
 	
-	int playerSize = 10;
+	int playerSize = 25;
 	
 	//position of the player
 	int x;
@@ -94,7 +94,7 @@ public class Player {
 	
 	public void paint(){
 		applet.fill(255,255,255);
-		applet.rect(x, y, 10, 10);
+		applet.rect(x, y, playerSize, playerSize);
 	}
 
 }

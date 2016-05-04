@@ -24,7 +24,7 @@ public class IndestructibleBlock implements MapItem {
 	@Override
 	public void paint(int x, int y) {
 		applet.fill(255,0,0);
-		applet.rect(x, y, 20, 20);
+		applet.rect(x, y, 40, 40);
 	}
 
 	@Override
