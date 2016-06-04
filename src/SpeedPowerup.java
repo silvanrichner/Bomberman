@@ -7,6 +7,12 @@ public class SpeedPowerup extends Powerup {
 		// TODO Auto-generated constructor stub
 	}
 
-	
+	@Override
+	public void applyPowerup(Player player) {
+		player.increaseSpeed();
+		
+		map [x][y] = null; 
+			
+	}
 
 }

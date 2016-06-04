@@ -1,5 +1,3 @@
-
-
 import processing.core.PApplet;
 
 public class Bomberman extends PApplet {
@@ -68,6 +66,11 @@ public class Bomberman extends PApplet {
 		//initialize the players
 		player1 = new Player(this, map, 5, 5, tileSize);
 		player2 = new Player(this, map, width-35, height-35, tileSize);
+		
+		//poweruptest
+		map[0][1] = new SpeedPowerup(this,map, 0,1);
+				
+				
 	}
 	
 	@Override

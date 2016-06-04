@@ -6,6 +6,14 @@ public class BombradiusPowerup extends Powerup {
 		super(applet, map, x, y);
 		// TODO Auto-generated constructor stub
 	}
+	public void applyPowerup(Player player) {
+		player.increaseRadius();
+		
+		map [x][y] = null; 
+			
+	}
+	
+	
 
 	
 

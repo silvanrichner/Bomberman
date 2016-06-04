@@ -1,11 +1,15 @@
-import processing.core.PApplet;
+import java.io.File;
 
-public class Powerup implements MapItem {
+import processing.core.PApplet;
+import processing.core.PImage;
+
+public abstract class Powerup implements MapItem {
 	
-	private PApplet applet;
-	private MapItem[][] map;
-	private int x;
-	private int y;
+	protected PApplet applet;
+	protected MapItem[][] map;
+	protected int x;
+	protected int y;
+	protected PImage image; 
 
 	public Powerup(PApplet applet, MapItem[][] map, int x, int y) {
 		this.applet = applet;
@@ -13,23 +17,24 @@ public class Powerup implements MapItem {
 		this.x = x;
 		this.y = y;
 	}
+	
+	public abstract void applyPowerup(Player player);
+	
 
 	@Override
 	public boolean isBlocking() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean isDestructible() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public void paint(int x, int y) {
-		// TODO Auto-generated method stub
-		
+	  PImage image = applet.loadImage(".."+File.separator+"res"+File.separator+"bomb.png");	// TODO Auto-generated method stub
+		applet.image(image,x,y);
 	}
 
 }

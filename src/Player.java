@@ -61,6 +61,10 @@ public class Player {
 				x += speed;
 			}
 		}
+		if (map[x/tileSize][y/tileSize] instanceof Powerup){
+			((Powerup) map[x/tileSize][y/tileSize]).applyPowerup(this);
+			
+		}
 	}
 	
 	private boolean canMove(int newX, int newY){
@@ -97,4 +101,19 @@ public class Player {
 		applet.rect(x, y, playerSize, playerSize);
 	}
 
+	public void increaseRadius(){
+		bombRadius++;
+		
+	}
+	
+	public void increaseSpeed(){
+		speed+=3;
+		
+	
+	}
+	public void increaseBombCount(){
+		maxBombs++;
+		curBombs++;
+	
+	}
 }
