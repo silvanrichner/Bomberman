@@ -20,7 +20,6 @@ public abstract class Powerup implements MapItem {
 	
 	public abstract void applyPowerup(Player player);
 	
-
 	@Override
 	public boolean isBlocking() {
 		return false;
@@ -33,7 +32,6 @@ public abstract class Powerup implements MapItem {
 
 	@Override
 	public void paint(int x, int y) {
-	  PImage image = applet.loadImage(".."+File.separator+"res"+File.separator+"bomb.png");	// TODO Auto-generated method stub
 		applet.image(image,x,y);
 	}
 

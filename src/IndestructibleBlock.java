@@ -1,5 +1,8 @@
 
+import java.io.File;
+
 import processing.core.PApplet;
+import processing.core.PImage;
 
 /**
  * Indestructible Blocks are used to build the map.
@@ -10,10 +13,12 @@ import processing.core.PApplet;
  */
 public class IndestructibleBlock implements MapItem {
 	
-	PApplet applet;
+	private PApplet applet;
+	private PImage image;
 	
 	public IndestructibleBlock(PApplet applet) {
 		this.applet = applet;
+		this.image = applet.loadImage(".."+File.separator+"resources"+File.separator+"wall.png");
 	}
 
 	@Override
@@ -23,8 +28,7 @@ public class IndestructibleBlock implements MapItem {
 
 	@Override
 	public void paint(int x, int y) {
-		applet.fill(255,0,0);
-		applet.rect(x, y, 40, 40);
+		applet.image(image, x,y);
 	}
 
 	@Override

@@ -1,10 +1,13 @@
+import java.io.File;
 import java.util.Random;
 
 import processing.core.PApplet;
+import processing.core.PImage;
 
 public class Crate implements MapItem {
 	
 	private PApplet applet;
+	private PImage image;
 	private MapItem[][] map;
 	
 	private boolean containsPowerup;
@@ -20,6 +23,8 @@ public class Crate implements MapItem {
 		this.y = y;
 		
 		this.containsPowerup = Math.random() < 0.3;
+		
+		this.image = applet.loadImage(".."+File.separator+"resources"+File.separator+"crate.png");
 	}
 
 	@Override
@@ -34,12 +39,14 @@ public class Crate implements MapItem {
 
 	@Override
 	public void paint(int x, int y) {
-		applet.fill(0,0,255);
-		applet.rect(x, y, 40, 40);
-
+		applet.image(image, x, y);
 	}
 	
-	public void destroy(){
+	/**
+	 * 
+	 * @return true when there was a powerup created
+	 */
+	public boolean destroy(){
 		//remove the crate from the map
 		map[x][y] = null;
 		
@@ -51,16 +58,18 @@ public class Crate implements MapItem {
 			case 0:
 				//Speed Powerup
 				powerup = new SpeedPowerup(applet, map, x, y);
+				break;
 			case 1:
 				//additional bomb Powerup
 				powerup = new BombPowerup(applet, map, x, y);
+				break;
 			case 2:
 				//Bombradius Powerup
 				powerup = new BombradiusPowerup(applet, map, x, y);
 			}
-			
 			map[x][y] = powerup;
+			return true;
 		}
+		return false;
 	}
-
 }
