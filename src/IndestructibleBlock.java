@@ -18,11 +18,11 @@ public class IndestructibleBlock implements MapItem {
 	
 	public IndestructibleBlock(PApplet applet) {
 		this.applet = applet;
-		this.image = applet.loadImage(".."+File.separator+"resources"+File.separator+"wall.png");
+		this.image = applet.loadImage("src"+File.separator+"resources"+File.separator+"wall.png");
 	}
 
 	@Override
-	public boolean isBlocking() {
+	public boolean isBlocking(Player player) {
 		return true;
 	}
 

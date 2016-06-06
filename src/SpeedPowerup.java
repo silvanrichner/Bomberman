@@ -6,7 +6,7 @@ public class SpeedPowerup extends Powerup {
 
 	public SpeedPowerup(PApplet applet, MapItem[][] map, int x, int y) {
 		super(applet, map, x, y);
-		image = applet.loadImage(".."+File.separator+"resources"+File.separator+"urgency.png");
+		image = applet.loadImage("src"+File.separator+"resources"+File.separator+"urgency.png");
 	}
 
 	@Override

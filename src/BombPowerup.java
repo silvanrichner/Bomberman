@@ -6,7 +6,7 @@ public class BombPowerup extends Powerup {
 
 	public BombPowerup(PApplet applet, MapItem[][] map, int x, int y) {
 		super(applet, map, x, y);
-		image = applet.loadImage(".."+File.separator+"resources"+File.separator+"danger.png");
+		image = applet.loadImage("src"+File.separator+"resources"+File.separator+"danger.png");
 	}
 	
 	@Override 

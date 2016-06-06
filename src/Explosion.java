@@ -13,7 +13,7 @@ public class Explosion implements MapItem{
 	
 	public Explosion(PApplet applet) {
 		this.applet = applet;
-		this.image = applet.loadImage(".."+File.separator+"resources"+File.separator+"explosion.png");
+		this.image = applet.loadImage("src"+File.separator+"resources"+File.separator+"explosion.png");
 	}
 	
 	public int getTimerExplosion() {
@@ -29,7 +29,7 @@ public class Explosion implements MapItem{
 	}
 
 	@Override
-	public boolean isBlocking() {
+	public boolean isBlocking(Player player) {
 		return false;
 	}
 

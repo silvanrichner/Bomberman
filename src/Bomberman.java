@@ -25,7 +25,7 @@ public class Bomberman extends PApplet {
 	Player player2;
 
 	public static void main(String args[]) {
-		PApplet.main(new String[] { "--present", "Bomberman" });
+		PApplet.main(new String[] { "Bomberman" });
 	}
 
 	@Override
@@ -72,9 +72,9 @@ public class Bomberman extends PApplet {
 
 		// initialize the players
 		player1 = new Player(this, map, width - 35, height - 35, tileSize);
-		player1.setImage(loadImage(".." + File.separator + "resources" + File.separator + "people-1.png"));
+		player1.setImage(loadImage("src" + File.separator + "resources" + File.separator + "people-1.png"));
 		player2 = new Player(this, map, 5, 5, tileSize);
-		player2.setImage(loadImage(".." + File.separator + "resources" + File.separator + "people.png"));
+		player2.setImage(loadImage("src" + File.separator + "resources" + File.separator + "people.png"));
 
 	}
 
@@ -99,14 +99,14 @@ public class Bomberman extends PApplet {
 		textSize(12);
 		// player1
 		text("Player 1", 120, 120);
-		PImage p1Image = loadImage(".." + File.separator + "resources" + File.separator + "people-1.png");
+		PImage p1Image = loadImage("src" + File.separator + "resources" + File.separator + "people-1.png");
 		image(p1Image, 130, 130);
 		text("move: [Arrowkeys]", 120, 175);
 		text("drop bomb: [SHIFT]", 120, 190);
 
 		// player1
 		text("Player 2", 390, 120);
-		PImage p2Image = loadImage(".." + File.separator + "resources" + File.separator + "people.png");
+		PImage p2Image = loadImage("src" + File.separator + "resources" + File.separator + "people.png");
 		image(p2Image, 400, 130);
 		text("move: [WASD]", 390, 175);
 		text("drop bomb: [e]", 390, 190);

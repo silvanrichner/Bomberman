@@ -98,10 +98,10 @@ public class Player {
 		int maxYIndex = (newY + playerSize -1) / tileSize;
 		
 		//check if there's no item on the new coordinates
-		if((map[minXIndex][minYIndex] != null  && map[minXIndex][minYIndex].isBlocking()) ||
-				(map[maxXIndex][maxYIndex] != null && map[maxXIndex][maxYIndex].isBlocking()) ||
-				(map[maxXIndex][minYIndex] != null  && map[maxXIndex][minYIndex].isBlocking()) ||
-				(map[minXIndex][maxYIndex] != null && map[minXIndex][maxYIndex].isBlocking())){
+		if((map[minXIndex][minYIndex] != null  && map[minXIndex][minYIndex].isBlocking(this)) ||
+				(map[maxXIndex][maxYIndex] != null && map[maxXIndex][maxYIndex].isBlocking(this)) ||
+				(map[maxXIndex][minYIndex] != null  && map[maxXIndex][minYIndex].isBlocking(this)) ||
+				(map[minXIndex][maxYIndex] != null && map[minXIndex][maxYIndex].isBlocking(this))){
 		
 			return false;
 		}
@@ -147,7 +147,7 @@ public class Player {
 		return curBombs;
 	}
 	
-	public void restoreCurBombs(){
+	public void restoreBomb(){
 		this.curBombs++;
 	}
 

@@ -24,11 +24,11 @@ public class Crate implements MapItem {
 		
 		this.containsPowerup = Math.random() < 0.3;
 		
-		this.image = applet.loadImage(".."+File.separator+"resources"+File.separator+"crate.png");
+		this.image = applet.loadImage("src"+File.separator+"resources"+File.separator+"crate.png");
 	}
 
 	@Override
-	public boolean isBlocking() {
+	public boolean isBlocking(Player player) {
 		return true;
 	}
 

@@ -1,5 +1,3 @@
-import java.io.File;
-
 import processing.core.PApplet;
 import processing.core.PImage;
 
@@ -21,7 +19,7 @@ public abstract class Powerup implements MapItem {
 	public abstract void applyPowerup(Player player);
 	
 	@Override
-	public boolean isBlocking() {
+	public boolean isBlocking(Player player) {
 		return false;
 	}
 

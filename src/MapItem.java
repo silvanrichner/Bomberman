@@ -10,9 +10,10 @@ public interface MapItem {
 	
 	/**
 	 * 
+	 * @param player TODO
 	 * @return true when the item is blocking the players movement, false when not.
 	 */
-	public boolean isBlocking();
+	public boolean isBlocking(Player player);
 	
 	/**
 	 * 

@@ -21,7 +21,7 @@ public class Bomb implements MapItem {
 	// The number of tiles that are affected by the bomb
 	private int radius;
 
-	// Amount of framerates
+	// Amount of frames until the bomb detonates
 	private int timerBomb = 180;
 
 	public Bomb(PApplet applet, MapItem[][] map, Player owner, int x, int y) {
@@ -34,17 +34,21 @@ public class Bomb implements MapItem {
 		this.x = x;
 		this.y = y;
 		
-		this.image = applet.loadImage(".."+File.separator+"resources"+File.separator+"danger.png");
+		this.image = applet.loadImage("src"+File.separator+"resources"+File.separator+"danger.png");
 	}
 
 	@Override
-	public boolean isBlocking() {
-		return false;
+	public boolean isBlocking(Player player) {
+		if(owner.equals(player)){
+			return timerBomb < 120;
+		}
+		
+		return true;
 	}
 
 	@Override
 	public boolean isDestructible() {
-		return true;
+		return false;
 	}
 
 	@Override
@@ -79,7 +83,7 @@ public class Bomb implements MapItem {
 			i++;
 		}
 
-		owner.restoreCurBombs();
+		owner.restoreBomb();
 	}
 
 	private boolean destroyTile(int x, int y) {
